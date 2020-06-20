@@ -45,27 +45,27 @@ spec:
         role: frontend
     spec:
       containers:
-        - name: nginx
-          image: nginx:1.18-perl
-          imagePullPolicy: IfNotPresent
-          ports:
-            - name: http
-              containerPort: 80
-          volumeMounts:
-            - name: nginx-proxy-config
-              mountPath: /etc/nginx/conf.d/default.conf
-              subPath: nginx.conf
-        - name: flask
-          image: docker.io/jprao715/flaskapp:v1
-          ports:
-            - name: http
-              containerPort: 5000
-          env:
-            - name: APP_NAME
-              value: Cedar715.k8s.GitOps
-            - name: APP_VERSION
-              value: v1.1
-      volumes:
+      - name: nginx
+        image: nginx:1.18-perl
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 80
+        volumeMounts:
         - name: nginx-proxy-config
-          configMap:
-            name: nginx-conf
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: nginx.conf
+      - name: flask
+        image: docker.io/jprao715/flaskapp:v2
+        ports:
+        - name: http
+          containerPort: 5000
+        env:
+        - name: APP_NAME
+          value: Cedar715.k8s.GitOps
+        - name: APP_VERSION
+          value: v1.1
+      volumes:
+      - name: nginx-proxy-config
+        configMap:
+          name: nginx-conf
