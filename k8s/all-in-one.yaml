@@ -35,7 +35,7 @@ metadata:
     role: frontend
     env: demo
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       role: frontend
@@ -64,7 +64,7 @@ spec:
             - name: APP_NAME
               value: Cedar715.k8s.GitOps
             - name: APP_VERSION
-              value: v1
+              value: v1.1
       volumes:
         - name: nginx-proxy-config
           configMap:
