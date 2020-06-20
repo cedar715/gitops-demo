@@ -8,6 +8,6 @@ COPY main.py .
 ENV FLASK_APP=/corp/app/main.py
 
 ENV APP_NAME=Cedar715.k8s.GitOps
-ENV APP_VERSION=v1
+ENV APP_VERSION=v2
 
 CMD ["flask", "run", "--host=127.0.0.1"]

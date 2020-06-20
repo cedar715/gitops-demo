@@ -29,7 +29,7 @@ metadata:
   name: frontend
   namespace: gitops
   annotations:
-    flux.weave.works/tag.flask: glob:develop-v*
+    flux.weave.works/tag.flask: glob:v*
     flux.weave.works/automated: 'true'
   labels:
     role: frontend
